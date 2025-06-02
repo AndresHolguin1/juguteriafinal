@@ -17,6 +17,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_repositorios", "lib_rep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "urt_presentaciones", "urt_presentaciones\urt_presentaciones.csproj", "{1F25CECF-A788-4321-A81F-22A5898540C5}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "items", "items", "{D74CF11C-47BC-4355-98CF-7E50AE0FE04B}"
+	ProjectSection(SolutionItems) = preProject
+		Secretos.json = Secretos.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,5 +48,6 @@ Global
 		{934F4AC3-A415-4A0C-B1FD-6F5530A94D24} = {0B9FD584-221E-4BBF-AAF0-A2F47857F1E4}
 		{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A} = {E3AE87D0-3D12-4388-A012-0F0C2C3BF95B}
 		{1F25CECF-A788-4321-A81F-22A5898540C5} = {6D71A4CE-426A-4481-BB26-4A198E9526C2}
+		{D74CF11C-47BC-4355-98CF-7E50AE0FE04B} = {6D71A4CE-426A-4481-BB26-4A198E9526C2}
 	EndGlobalSection
 EndGlobal

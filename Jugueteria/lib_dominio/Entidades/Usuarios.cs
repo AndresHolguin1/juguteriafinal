@@ -17,8 +17,8 @@ namespace lib_dominio.Entidades
         public string? Direccion { get; set; }
         public string? Clave { get; set; }
         public string? Img { get; set; }
-        public int roles { get; set; }
-        [ForeignKey("roles")] public Roles? _Id_Rol { get; set; }
+        public int RolId { get; set; }
+        [ForeignKey("RolId")] public Roles? _Id_Rol { get; set; }
 
     }
 }
