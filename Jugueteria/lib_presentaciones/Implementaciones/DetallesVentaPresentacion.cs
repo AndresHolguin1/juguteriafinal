@@ -1,4 +1,7 @@
-﻿using System;
+﻿using lib_dominio.Entidades;
+using lib_dominio.Nucleo;
+using lib_presentaciones.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,3 +78,4 @@ namespace lib_presentaciones.Implementaciones
             return entidad;
         }
     }
+}
