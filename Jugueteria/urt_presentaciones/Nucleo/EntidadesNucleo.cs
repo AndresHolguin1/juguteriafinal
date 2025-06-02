@@ -40,8 +40,11 @@ namespace urt_presentaciones.Nucleo
                 entidad.Nombre = "Juan";
                 entidad.Correo= "perez@.gmail.com";
                 entidad.Direccion = "Calle 123";
-                
-                return entidad;
+                entidad.Clave = " 123";
+                entidad.RolId = 1;
+
+
+            return entidad;
             }
             public static Empleados? Empleados()
             {

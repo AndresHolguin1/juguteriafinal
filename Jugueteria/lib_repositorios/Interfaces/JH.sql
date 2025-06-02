@@ -136,18 +136,18 @@ INSERT INTO Ventas (Fecha, Total, Usuarios, Empleados) VALUES
 
 INSERT INTO Proveedores (Nombre, Correo, Direccion, Telefono) VALUES
 ('Andres','Anftl@gmail.com','calle04','19234'),
-('Samuel','Sam@gmail.com','calle90','0234'),
-('Luis','Lui@gmail.com','calle70','1254');
+('Samuel','Sam@gmail.com','calle90','0234');
+
 
 INSERT INTO Pedidos (Fecha, Proveedores, Empleados) VALUES
 (GETDATE(),1,1),
-(GETDATE(),2,2),
-(GETDATE(),3,3);
+(GETDATE(),2,2);
+
 
 INSERT INTO DetallesVenta (Cantidad, PrecioUnitario, Ventas, Juguetes) VALUES
 (32,93.4,1,1),
-(92,29.4,2,2),
-(112,83.4,3,3);
+(92,29.4,2,2);
+
 
 INSERT INTO Permisos (Nombre) VALUES
 ('Permiso1'), ('Permiso2'), ('Permiso3');
