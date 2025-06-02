@@ -13,4 +13,8 @@
     <ProjectReference Include="..\lib_repositorios\lib_repositorios.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Emergentes\" />
+  </ItemGroup>
+
 </Project>

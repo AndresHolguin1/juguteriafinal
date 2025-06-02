@@ -1,0 +1,148 @@
+﻿@page
+@model asp_presentaciones.Pages.Ventanas.EmpleadosModel
+@{
+    ViewData["Titulo"] = "";
+
+    <center>
+        <div>
+            <form method="POST" enctype="multipart/form-data">
+                @Html.AntiForgeryToken()
+
+                <div align="left">
+                    <h3>Empleados</h3>
+                </div>
+                <div align="left" class="bt_panel_buttons">
+
+                    <input type="submit" value="Refrescar" asp-page-handler="BtRefrescar" class="btn btn-secondary" disabled="@(Model.Accion != lib_dominio.Nucleo.Enumerables.Ventanas.Listas)" />
+                    <input type="submit" value="Nuevo" asp-page-handler="BtNuevo" class="btn btn-secondary" disabled="@(Model.Accion != lib_dominio.Nucleo.Enumerables.Ventanas.Listas)" />
+                    <input type="submit" value="Guardar" asp-page-handler="BtGuardar" class="btn btn-secondary" disabled="@(Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Listas)" />
+                    <input type="submit" value="Cancelar" asp-page-handler="BtCancelar" class="btn btn-secondary" disabled="@(Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Listas)" />
+
+                </div>
+
+                @if (Model.Accion != lib_dominio.Nucleo.Enumerables.Ventanas.Listas || Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Borrar)
+                {
+
+                    <input type="hidden" asp-for="@Model.Actual!.Id" />
+                    <img src="@Url.Content("~/imagenes/20250525_0410_image.png")" alt="Empleados" />
+
+
+                }
+                @if (Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Borrar)
+                {
+                    <input type="hidden" asp-for="@Model.Actual!.Nombre" style="background-color: white; color: black; border: 5px solid black;" />
+                    <input type="hidden" asp-for="@Model.Actual!.Cargo" style="background-color: white; color: black; border: 5px solid black;" />
+                    <input type="hidden" asp-for="@Model.Actual!.Telefono" style="background-color: white; color: black; border: 5px solid black;" />
+                    <input type="hidden" asp-for="@Model.Actual!.Correo" style="background-color: white; color: black; border: 5px solid black;" />
+                    <input type="hidden" asp-for="@Model.Actual!.roles" style="background-color: white; color: black; border: 5px solid black;" />
+                    <img src="@Url.Content("~/imagenes/20250525_0410_image.png")" alt="Empleados" />
+
+                }
+
+                @if (Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Editar)
+                {
+                    <div class="containers_vn panel panel-default">
+                        <h3>Empleado</h3>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Nombre</label>
+                            <div class="col-lg-6">
+                                <input class="cts_forms form-control" asp-for="@Model.Actual!.Nombre"
+                                       style="background-color: white; color: black; border: 5px solid black;" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Cargo</label>
+                            <div class="col-lg-6">
+                                <input class="cts_forms form-control" asp-for="@Model.Actual!.Cargo" style="background-color: white; color: black; border: 5px solid black;" />
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Teléfono</label>
+                            <div class="col-lg-6">
+                                <input class="cts_forms form-control" asp-for="@Model.Actual!.Telefono" style="background-color: white; color: black; border: 5px solid black;" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Correo</label>
+                            <div class="col-lg-6">
+                                <input class="cts_forms form-control" asp-for="@Model.Actual!.Correo" style="background-color: white; color: black; border: 5px solid black;" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Rol ID</label>
+                            <div class="col-lg-6">
+                                <select asp-for="Actual!.roles"
+                                        asp-items="@(new SelectList(Model.Rol, "Id", "Nombre"))" class="form-control" style="background-color: white; color: black; border: 5px solid black;">
+                                    <option value="">Selecciona un rol</option>
+                                    <option value="1">uno</option>
+                                    <option value="2">dos</option>
+                                    <option value="3">tres</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (ViewData.ContainsKey("Mensaje"))
+                {
+                    <input type="hidden" asp-for="@Model.Accion" />
+                    @await Html.PartialAsync("../Emergentes/Mensajes.cshtml")
+                }
+
+                @if (Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Borrar)
+                {
+                    <div class='popup'>
+                        <div class='pp_del_inner'>
+                            <div style='width:95%'>
+                                <h2 align="left">Mensaje</h2>
+                                <h4 align="left">Desea borrar el empleado?</h4>
+                                <h6 align="left">@Model.Actual!.Nombre, @Model.Actual!.Cargo</h6>
+                                <br /><br />
+                                <input type="submit" value="Borrar" asp-page-handler="BtBorrar" class="btn btn-secondary" />
+                                <input type="submit" value="Cerrar" asp-page-handler="BtCancelar" class="btn btn-secondary" />
+                            </div>
+                        </div>
+                    </div>
+                }
+
+                @if (Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Listas || Model.Accion == lib_dominio.Nucleo.Enumerables.Ventanas.Borrar)
+                {
+                    <input id="flNombre" class="cts_forms form-control" asp-for="@Model.Filtro!.Nombre" placeholder="Nombre" />
+                    <br />
+                    <div class="containers_vn panel panel-default">
+                        <table class="tb_data table table-striped table-bordered table-hover">
+                            <tr>
+
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th>Acción</th>
+
+                            </tr>
+                            @if (Model != null && Model.Lista != null)
+                            {
+                                @foreach (var elemento in Model.Lista)
+                                {
+                                    <tr>
+                                        <td>@elemento.Nombre</td>
+                                        <td>@elemento.Cargo</td>
+                                        <td>@elemento.Telefono</td>
+                                        <td>@elemento.Correo</td>
+                                        <td>@elemento._Id_Rol!.Nombre</td>
+
+                                        <td>
+                                            <input type="submit" value="Modificar" asp-page-handler="BtModificar" class="btn btn-secondary" asp-route-data="@elemento.Id" />
+                                            <input type="submit" value="Borrar" asp-page-handler="BtBorrarVal" class="btn btn-secondary" asp-route-data="@elemento.Id" />
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </table>
+                    </div>
+                }
+            </form>
+        </div>
+    </center>
+}
