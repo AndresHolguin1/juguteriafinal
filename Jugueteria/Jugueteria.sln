@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.pruebas unitarias", "4.pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_dominio", "lib_dominio\lib_dominio.csproj", "{934F4AC3-A415-4A0C-B1FD-6F5530A94D24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_repositorios", "lib_repositorios\lib_repositorios.csproj", "{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,11 +25,16 @@ Global
 		{934F4AC3-A415-4A0C-B1FD-6F5530A94D24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{934F4AC3-A415-4A0C-B1FD-6F5530A94D24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{934F4AC3-A415-4A0C-B1FD-6F5530A94D24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{934F4AC3-A415-4A0C-B1FD-6F5530A94D24} = {0B9FD584-221E-4BBF-AAF0-A2F47857F1E4}
+		{AB0E146F-3BE6-40ED-8D7A-35846FD01B6A} = {E3AE87D0-3D12-4388-A012-0F0C2C3BF95B}
 	EndGlobalSection
 EndGlobal
