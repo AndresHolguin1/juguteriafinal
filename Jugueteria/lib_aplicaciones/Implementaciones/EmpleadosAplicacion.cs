@@ -31,7 +31,7 @@ namespace lib_aplicaciones.Implementaciones
             // Calculos
 
             this.IConexion!.Empleados!.Remove(entidad);
-            this.IConexion.SaveChangesAsync();
+            this.IConexion.SaveChanges();
             return entidad;
         }
 
@@ -51,7 +51,7 @@ namespace lib_aplicaciones.Implementaciones
             // Calculos
 
             this.IConexion!.Empleados!.Add(entidad);
-            this.IConexion.SaveChangesAsync();
+            this.IConexion.SaveChanges();
             return entidad;
         }
 
@@ -74,7 +74,7 @@ namespace lib_aplicaciones.Implementaciones
 
             var entry = this.IConexion!.Entry<Empleados>(entidad);
             entry.State = EntityState.Modified;
-            this.IConexion.SaveChangesAsync();
+            this.IConexion.SaveChanges();
             return entidad;
         }
 
