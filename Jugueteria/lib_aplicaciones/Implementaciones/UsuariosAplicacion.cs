@@ -75,10 +75,10 @@ namespace lib_aplicaciones.Implementaciones
             return entidad;
         }
 
-        public List<Usuarios> PorDirrecion(Usuarios? entidad)
+        public List<Usuarios> PorCorreo(Usuarios? entidad)
         {
             return this.IConexion!.Usuarios!
-                    .Where(x => x.Direccion!.Contains(entidad!.Direccion!))
+                    .Where(x => x.Correo!.Contains(entidad!.Correo!))
                     .ToList();
         }
     }

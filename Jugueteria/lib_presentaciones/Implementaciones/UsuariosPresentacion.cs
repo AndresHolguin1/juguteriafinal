@@ -7,12 +7,7 @@ namespace lib_presentaciones.Implementaciones
     public class UsuariosPresentacion : IUsuariosPresentacion
     {
         private Comunicaciones? comunicaciones = null;
-
-        /// <summary>
-        /// Obtiene una lista de todos los usuarios.
-        /// </summary>
-        /// <returns>Una tarea que representa la operación asíncrona. El resultado de la tarea es una lista de Usuarios.</returns>
-        /// <exception cref="Exception">Lanza una excepción si el servicio de comunicaciones devuelve un error.</exception>
+      
         public async Task<List<Usuarios>> Listar()
         {
             var lista = new List<Usuarios>();
@@ -37,14 +32,14 @@ namespace lib_presentaciones.Implementaciones
         /// <param name="entidad">La entidad Usuarios que contiene la dirección a buscar.</param>
         /// <returns>Una tarea que representa la operación asíncrona. El resultado es una lista de Usuarios.</returns>
         /// <exception cref="Exception">Lanza una excepción si el servicio de comunicaciones devuelve un error.</exception>
-        public async Task<List<Usuarios>> PorDireccion(Usuarios? entidad)
+        public async Task<List<Usuarios>> PorCorreo(Usuarios? entidad)
         {
             var lista = new List<Usuarios>();
             var datos = new Dictionary<string, object>();
             datos["Entidad"] = entidad!;
 
             comunicaciones = new Comunicaciones();
-            datos = comunicaciones.ConstruirUrl(datos, "Usuarios/PorDireccion");
+            datos = comunicaciones.ConstruirUrl(datos, "Usuarios/PorCorreo");
             var respuesta = await comunicaciones!.Ejecutar(datos);
 
             if (respuesta.ContainsKey("Error"))
@@ -55,6 +50,7 @@ namespace lib_presentaciones.Implementaciones
             lista = JsonConversor.ConvertirAObjeto<List<Usuarios>>(JsonConversor.ConvertirAString(respuesta["Entidades"]));
             return lista;
         }
+       
 
         /// <summary>
         /// Guarda un nuevo usuario.

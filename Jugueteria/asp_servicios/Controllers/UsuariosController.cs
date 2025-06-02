@@ -76,7 +76,7 @@ namespace asp_servicios.Controllers
                 JsonConversor.ConvertirAString(datos["Entidad"]));
 
                 this.iAplicacion!.Configurar(Configuracion.ObtenerValor("StringConexion")!);
-                respuesta["Entidades"] = this.iAplicacion!.PorDirrecion(entidad);
+                respuesta["Entidades"] = this.iAplicacion!.PorCorreo(entidad);
 
                 respuesta["Respuesta"] = "OK";
                 respuesta["Fecha"] = DateTime.Now.ToString();

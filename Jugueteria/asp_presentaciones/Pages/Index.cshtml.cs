@@ -1,7 +1,10 @@
-using lib_dominio.Entidades;
-using lib_dominio.Nucleo;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using lib_dominio.Entidades;
+
+using lib_dominio.Nucleo;
+using System;
+using lib_repositorios.Implementaciones;
 
 namespace asp_presentaciones.Pages
 {

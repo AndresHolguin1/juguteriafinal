@@ -1,10 +1,8 @@
-using lib_presentaciones.Interfaces;
+Ôªøusing lib_presentaciones.Interfaces;
 using lib_presentaciones.Implementaciones;
 using asp_presentaciones;
 using Microsoft.EntityFrameworkCore;
 using lib_repositorios.Implementaciones;
-
-
 var builder = WebApplication.CreateBuilder(args);
 var startup = new Startup(builder.Configuration);
 startup.ConfigureServices(builder, builder.Services);
@@ -21,7 +19,7 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
 });
 
-// Registro de tus servicios de presentaciÛn
+// Registro de tus servicios de presentaci√≥n
 builder.Services.AddScoped<IVentasPresentacion, VentasPresentacion>();
 builder.Services.AddScoped<IEmpleadosPresentacion, EmpleadosPresentacion>();
 builder.Services.AddScoped<IPermisosPresentacion, PermisosPresentacion>();
@@ -55,6 +53,6 @@ app.UseAuthorization();
 app.UseSession();
 
 app.MapRazorPages();
-app.MapControllers(); // Si est·s usando controladores
+app.MapControllers(); // Si est√°s usando controladores
 
 app.Run();

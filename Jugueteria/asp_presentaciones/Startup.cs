@@ -1,5 +1,8 @@
 ﻿using lib_presentaciones.Implementaciones;
 using lib_presentaciones.Interfaces;
+using lib_repositorios.Implementaciones;
+using lib_repositorios.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace asp_presentaciones
 {
@@ -25,13 +28,14 @@ namespace asp_presentaciones
             builder.Services.AddScoped<IDetallesVentaPresentacion, DetallesVentaPresentacion>();
             builder.Services.AddScoped<IEstantesPresentacion, EstantePresentacion>();
             builder.Services.AddScoped<IRolesPresentacion, RolesPresentacion>();
-            builder.Services.AddScoped<IPedidosPresentacion, PedidosPresentacion>(); // Asegúrate de que "PedidosPresentacion" sea el nombre de tu clase de implementación
-
+            builder.Services.AddScoped<IPedidosPresentacion, PedidosPresentacion>();
+            builder.Services.AddScoped<IConexion, Conexion>();
 
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddRazorPages();
+            
             services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -44,11 +48,12 @@ namespace asp_presentaciones
             {
                 app.UseExceptionHandler("/Error");
             }
+            app.UseSession();
             app.UseStaticFiles();
             app.UseRouting();
             app.UseAuthorization();
             app.MapRazorPages();
-            app.UseSession();
+            
             app.Run();
         }
     }
